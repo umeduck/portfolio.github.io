@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="ja">
 <head>
@@ -7,88 +6,160 @@
   <title>ながティム | シンガーソングライター</title>
   <meta name="description" content="ながティムのプロフィールページ。おすすめ動画やSNSリンクをまとめています。" />
   <link rel="stylesheet" href="./style.css" />
+  <script>
+    (function(){var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);else if(window.matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.setAttribute("data-theme","dark")})();
+  </script>
 </head>
 <body>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
   <header class="header">
     <div class="container header-inner">
-      <a class="brand" href="#top">ながティム</a>
-      <nav class="nav">
-        <a href="#about">プロフィール</a>
-        <a href="#video">おすすめ動画</a>
-        <a href="#links">SNS</a>
+      <a class="brand" href="#top">NT</a>
+      <nav id="mainNav" class="nav">
+        <a href="#about">Profile</a>
+        <a href="#video">Video</a>
+        <a href="#links">Links</a>
       </nav>
+      <div class="header-right">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="テーマ切り替え">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="hamburger" id="hamburger" type="button" aria-label="メニューを開く" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
+    <div class="scroll-progress" id="scrollProgress"></div>
   </header>
+  <div class="menu-overlay" id="menuOverlay"></div>
 
-  <main id="top" class="container">
+  <main id="top">
+
+    <!-- ===== Hero: full viewport ===== -->
     <section class="hero">
-      <p class="badge">シンガーソングライター</p>
-      <h1 class="title">ながティム</h1>
-      <p class="lead">歌ったり作ったりしています。</p>
-
-      <div class="hero-actions">
-        <a class="btn primary" href="#video">動画を見る</a>
-        <a class="btn" href="#links">SNSへ</a>
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="hero-label">Singer-Songwriter</p>
+        <h1 class="hero-title" id="heroTitle">ながティム</h1>
+        <p class="hero-lead" id="typingTarget" data-text="歌ったり作ったりしています。"></p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#video" data-hover>動画を見る</a>
+          <a class="btn" href="#links" data-hover>SNSへ</a>
+        </div>
+      </div>
+      <div class="scroll-hint" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="scroll-hint-line"></div>
       </div>
     </section>
 
-    <section id="about" class="card">
-      <h2>プロフィール</h2>
-      <p>
-        こんにちは、ながティムです。<br />
-        弾き語り・歌ってみた・作曲など、ゆるく楽しく活動しています。
-      </p>
-    </section>
-
-    <section id="video" class="card">
-      <h2>おすすめ動画</h2>
-      <p class="muted">ページ上でそのまま再生できます。</p>
-
-      <!-- YouTube 埋め込み（動画ID: z9H0QoDiGzY） -->
-      <div class="video-wrap" aria-label="YouTube video player">
-        <<iframe
-        src="https://www.youtube-nocookie.com/embed/z9H0QoDiGzY"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-      </iframe>
-      
+    <!-- ===== Marquee ===== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-inner">
+        <span>弾き語り</span><span>歌ってみた</span><span>作曲</span><span>シンガーソングライター</span>
+        <span>弾き語り</span><span>歌ってみた</span><span>作曲</span><span>シンガーソングライター</span>
       </div>
+    </div>
 
-      <div class="small-actions">
-        <a class="textlink" href="https://www.youtube.com/watch?v=z9H0QoDiGzY" target="_blank" rel="noreferrer">
-          YouTubeで開く →
-        </a>
+    <!-- ===== About ===== -->
+    <section id="about" class="section fade-up">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-num">01</span>
+          <span class="section-label">Profile</span>
+        </div>
+        <div class="section-body">
+          <h2 class="section-title reveal-text">プロフィール</h2>
+          <p class="section-text">
+            こんにちは、ながティムです。<br />
+            弾き語り・歌ってみた・作曲など、<br class="sp-only" />ゆるく楽しく活動しています。
+          </p>
+        </div>
       </div>
     </section>
 
-    <section id="links" class="card">
-      <h2>SNSリンク</h2>
-
-      <div class="links">
-        <a class="link-card" href="https://www.youtube.com/@%E3%81%AA%E3%81%8C%E3%83%86%E3%82%A3%E3%83%A0" target="_blank" rel="noreferrer">
-          <div class="link-title">YouTube</div>
-          <div class="link-sub muted">@ながティム</div>
-        </a>
-
-        <a class="link-card" href="https://www.instagram.com/nagatomo_0410?igsh=OHI0cHdiNGFyYjJy&utm_source=qr" target="_blank" rel="noreferrer">
-          <div class="link-title">Instagram</div>
-          <div class="link-sub muted">@nagatomo_0410</div>
-        </a>
+    <!-- ===== Video ===== -->
+    <section id="video" class="section fade-up">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-num">02</span>
+          <span class="section-label">Video</span>
+        </div>
+        <div class="section-body">
+          <h2 class="section-title reveal-text">おすすめ動画</h2>
+          <p class="section-sub muted">ページ上でそのまま再生できます。</p>
+          <div class="video-wrap">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/z9H0QoDiGzY"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="small-actions">
+            <a class="textlink" href="https://www.youtube.com/watch?v=z9H0QoDiGzY" target="_blank" rel="noreferrer" data-hover>
+              YouTubeで開く
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
+        </div>
       </div>
-
-      <p class="muted note">
-        ※ 連絡はInstagramのDMがいちばん早いです。
-      </p>
     </section>
+
+    <!-- ===== Links ===== -->
+    <section id="links" class="section fade-up">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-num">03</span>
+          <span class="section-label">Links</span>
+        </div>
+        <div class="section-body">
+          <h2 class="section-title reveal-text">SNSリンク</h2>
+          <div class="links">
+            <a class="link-card" href="https://www.youtube.com/@%E3%81%AA%E3%81%8C%E3%83%86%E3%82%A3%E3%83%A0" target="_blank" rel="noreferrer" data-hover>
+              <div class="link-card-inner">
+                <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.546 12 3.546 12 3.546s-7.505 0-9.377.504A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.504 9.376.504 9.376.504s7.505 0 9.377-.504a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                <div class="link-text">
+                  <div class="link-name">YouTube</div>
+                  <div class="link-handle muted">@ながティム</div>
+                </div>
+                <svg class="link-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </div>
+            </a>
+            <a class="link-card" href="https://www.instagram.com/nagatomo_0410?igsh=OHI0cHdiNGFyYjJy&utm_source=qr" target="_blank" rel="noreferrer" data-hover>
+              <div class="link-card-inner">
+                <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                <div class="link-text">
+                  <div class="link-name">Instagram</div>
+                  <div class="link-handle muted">@nagatomo_0410</div>
+                </div>
+                <svg class="link-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </div>
+            </a>
+          </div>
+          <p class="muted note">※ 連絡はInstagramのDMがいちばん早いです。</p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="footer">
     <div class="container footer-inner">
-      <small>© <span id="year"></span> ながティム</small>
+      <small>&copy; <span id="year"></span> ながティム</small>
+      <small class="muted">Singer-Songwriter</small>
     </div>
   </footer>
+
+  <button class="back-to-top" id="backToTop" type="button" aria-label="トップに戻る">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
 
   <script src="./script.js"></script>
 </body>
