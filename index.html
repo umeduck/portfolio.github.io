@@ -1,0 +1,95 @@
+
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ながティム | シンガーソングライター</title>
+  <meta name="description" content="ながティムのプロフィールページ。おすすめ動画やSNSリンクをまとめています。" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="#top">ながティム</a>
+      <nav class="nav">
+        <a href="#about">プロフィール</a>
+        <a href="#video">おすすめ動画</a>
+        <a href="#links">SNS</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <section class="hero">
+      <p class="badge">シンガーソングライター</p>
+      <h1 class="title">ながティム</h1>
+      <p class="lead">歌ったり作ったりしています。</p>
+
+      <div class="hero-actions">
+        <a class="btn primary" href="#video">動画を見る</a>
+        <a class="btn" href="#links">SNSへ</a>
+      </div>
+    </section>
+
+    <section id="about" class="card">
+      <h2>プロフィール</h2>
+      <p>
+        こんにちは、ながティムです。<br />
+        弾き語り・歌ってみた・作曲など、ゆるく楽しく活動しています。
+      </p>
+    </section>
+
+    <section id="video" class="card">
+      <h2>おすすめ動画</h2>
+      <p class="muted">ページ上でそのまま再生できます。</p>
+
+      <!-- YouTube 埋め込み（動画ID: z9H0QoDiGzY） -->
+      <div class="video-wrap" aria-label="YouTube video player">
+        <<iframe
+        src="https://www.youtube-nocookie.com/embed/z9H0QoDiGzY"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+      
+      </div>
+
+      <div class="small-actions">
+        <a class="textlink" href="https://www.youtube.com/watch?v=z9H0QoDiGzY" target="_blank" rel="noreferrer">
+          YouTubeで開く →
+        </a>
+      </div>
+    </section>
+
+    <section id="links" class="card">
+      <h2>SNSリンク</h2>
+
+      <div class="links">
+        <a class="link-card" href="https://www.youtube.com/@%E3%81%AA%E3%81%8C%E3%83%86%E3%82%A3%E3%83%A0" target="_blank" rel="noreferrer">
+          <div class="link-title">YouTube</div>
+          <div class="link-sub muted">@ながティム</div>
+        </a>
+
+        <a class="link-card" href="https://www.instagram.com/nagatomo_0410?igsh=OHI0cHdiNGFyYjJy&utm_source=qr" target="_blank" rel="noreferrer">
+          <div class="link-title">Instagram</div>
+          <div class="link-sub muted">@nagatomo_0410</div>
+        </a>
+      </div>
+
+      <p class="muted note">
+        ※ 連絡はInstagramのDMがいちばん早いです。
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <small>© <span id="year"></span> ながティム</small>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
